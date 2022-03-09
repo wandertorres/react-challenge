@@ -1,12 +1,13 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 type buttonType = {
-    title: string
+    title: string;
+    onClick?: MouseEventHandler;
 }
 
-export const Button = ({title}: buttonType) => {
+export const Button = ({title, onClick}: buttonType) => {
     
     return(
-        <div className="button">{title}</div>
+        <button className="button" onClick={ onClick }>{title}</button>
     );
 }

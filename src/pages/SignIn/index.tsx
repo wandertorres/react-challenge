@@ -14,8 +14,8 @@ export const SignIn = () => {
                 <Link className="header-link" to="/signup">Sign Up</Link>
             </div>
             <form className="signIn-form">
-                <Input type="text" placeholder="Your username" />
-                <Input type="password" placeholder="Your password" />
+                <Input onChange={()=>{}} type="text" placeholder="Your username" />
+                <Input onChange={()=>{}} type="password" placeholder="Your password" />
                 <a className="form-link" href="/">Forgot password?</a>
                 <Button title="Log in" />
             </form>
