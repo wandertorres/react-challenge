@@ -2,6 +2,7 @@ import React from "react";
 import logo from '../../assets/images/logo.svg';
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { Link } from "react-router-dom";
 
 export const SignIn = () => {
     
@@ -10,7 +11,7 @@ export const SignIn = () => {
             <img className="signIn-logo" src={ logo } alt="Logo" />
             <div className="signIn-header">
                 <h1 className="header-title">Sign In</h1>
-                <a className="header-link" href="/" >Sign Up</a>
+                <Link className="header-link" to="/signup">Sign Up</Link>
             </div>
             <form className="signIn-form">
                 <Input type="text" placeholder="Your username" />
