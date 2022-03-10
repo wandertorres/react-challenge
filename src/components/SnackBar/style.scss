@@ -1,0 +1,14 @@
+span {
+    height: 25px;
+    border-radius: 4px;
+    color: $WHITE;
+    padding: 4px 10px;
+}
+
+.error {
+    background: $ERROR;
+}
+
+.success {
+    background: $SUCCESS;
+}
