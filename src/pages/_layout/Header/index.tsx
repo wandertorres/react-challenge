@@ -1,11 +1,11 @@
 import React from "react";
 import logo from '../../../assets/images/logo.svg';
 
-type propType = {
+type headerType = {
     model: string,
 }
 
-export const Header = ({ ...props }: propType) => {
+export const Header = ({ ...props }: headerType) => {
 
     return(
         <header className={props.model+" flex flex--justify--space-between"}>

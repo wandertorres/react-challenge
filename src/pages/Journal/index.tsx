@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "../_layout/Header";
+import { EmptyList } from "../_layout/EmptyList";
 
 export const Journal = () => {
 
@@ -7,7 +8,7 @@ export const Journal = () => {
         <main>
             <Header model="authenticated" />
             <section className="">
-                <h2>Conteudo</h2>
+                <EmptyList linkTitle="Create a journal" />
             </section>
         </main>
     );
