@@ -1,9 +1,12 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
+import { Link } from "react-router-dom";
 import logo from '../../../assets/images/logo.svg';
 import { Button } from "../../../components/Button";
 
 type headerType = {
     model: string,
+    link?: string,
+    onClick?: MouseEventHandler;
 }
 
 export const Header = ({ ...props }: headerType) => {
@@ -16,7 +19,9 @@ export const Header = ({ ...props }: headerType) => {
                     <img className="logo--small" src={ logo } alt="Logo" />
                     {
                         props.model === "authenticatedWithButton" &&
-                        <Button title="+ Add journal" type="secundary" />
+                        <Link to="journal/create">
+                            <Button title="+ Add journal" type="secundary"  />
+                        </Link>
                     }
                 </>
             }
