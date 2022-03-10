@@ -4,6 +4,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { SnackBar } from "../../components/SnackBar";
 
 export const SignIn = () => {
     const [username, setUserName] = useState<string>();
@@ -40,7 +41,7 @@ export const SignIn = () => {
                         handleSignIn();
                     }} 
                     title="Log in" />
-                {message &&  <span>{message}</span>}
+                {message &&  <SnackBar type="error" messsage={message} />}
             </form>
         </section>
     );
