@@ -42,6 +42,7 @@ export const SignIn = () => {
                         onChange={(e) => setPassword((e.target as HTMLInputElement).value)} />
                     <a className="form-link" href="#link">Forgot password?</a>
                     <Button
+                        type="primary"
                         onClick={(e) => {
                             e.preventDefault();
                             handleSignIn();

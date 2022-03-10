@@ -5,6 +5,7 @@ import { JournalContext } from "../../../context/JournalContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../../context/UserContext";
+import { Journal } from "../../../interfaces/journal.interface";
 
 export const JournalList = () => {
     const { journals, setJournals, setJournalName } = useContext(JournalContext);
@@ -18,21 +19,27 @@ export const JournalList = () => {
 
     return(
         <main>
-            <Header model="authenticated" />
             {
                 journals.length > 0
-                ? journals.map((l: any, i: number) => (
-                    <Link
-                    to={`journal/${l.id}/posts`}
-                    onClick={() => setJournalName(l.title)}
-                    key={i}
-                  >
-                    <span>{ l.title }</span>
-                  </Link>
-                  ))
-                : <section className="">
-                    <EmptyList linkTitle="Create a journal" path="/journal/create" />
-                </section>
+                ? <>
+                    <Header model="authenticatedWithButton" />
+                    <section className="journalList flex flex--justify--space-between flex-wrap">
+                        {journals.map((journal: Journal) => (
+                            <Link
+                                to={`journal/${journal.id}/posts`}
+                                onClick={() => setJournalName(journal.title)}
+                                key={journal.id}>
+                                <h4 className="title">{ journal.title }</h4>
+                            </Link>
+                        ))}
+                    </section>
+                </> 
+                : <>
+                    <Header model="authenticated" />
+                    <section className="">
+                        <EmptyList linkTitle="Create a journal" path="/journal/create" />
+                    </section>
+                </> 
             }
         </main>
     );

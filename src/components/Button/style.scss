@@ -3,12 +3,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $PRIMARY;
-    color: $WHITE;
     border-radius: 40px;
     width: 161px;
     height: 40px;
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
+
+    &.primary {
+        background: $PRIMARY;
+        color: $WHITE;
+    }
+
+    &.secundary {
+        margin: 0;
+        width: 120px;
+        background: transparent;
+        color: $PRIMARY;
+        border: 1px solid #834825;
+    }
 }

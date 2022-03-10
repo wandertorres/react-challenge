@@ -44,6 +44,7 @@ export const SignUp = () => {
                         placeholder="Email (optional)"
                         onChange={(e) => setEmail((e.target as HTMLInputElement).value)} />
                     <Button 
+                        type="primary"
                         onClick={(e) => {
                             e.preventDefault();
                             handleSignUp();

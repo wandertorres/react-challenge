@@ -1,5 +1,6 @@
 import React from "react";
 import logo from '../../../assets/images/logo.svg';
+import { Button } from "../../../components/Button";
 
 type headerType = {
     model: string,
@@ -15,7 +16,7 @@ export const Header = ({ ...props }: headerType) => {
                     <img className="logo--small" src={ logo } alt="Logo" />
                     {
                         props.model === "authenticatedWithButton" &&
-                        <button>Teste</button>
+                        <Button title="+ Add journal" type="secundary" />
                     }
                 </>
             }

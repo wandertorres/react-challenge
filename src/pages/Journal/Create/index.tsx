@@ -32,6 +32,7 @@ export const JournalCreate = () => {
                     placeholder="Define a title"
                     onChange={(e) => setTitle((e.target as HTMLInputElement).value)} />
                 <Button
+                    type="primary"
                     onClick={(e) => {
                         e.preventDefault();
                         handleJournalCreate();
