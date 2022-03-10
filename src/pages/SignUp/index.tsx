@@ -4,11 +4,13 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { SnackBar } from "../../components/SnackBar";
 
 export const SignUp = () => {
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [email, setEmail] = useState<string>();
+    const [message, setMessage] = useState<string>();
     let history = useHistory();
 
     const handleSignUp = () => {
@@ -16,8 +18,8 @@ export const SignUp = () => {
             ? axios
                 .post('https://fuerza.test/auth/signup', {username, password, email})
                 .then(() => history.push("/"))
-                .catch((error) => console.log("Erro: "+error))
-            : console.log("Campos obrigatorios");
+                .catch(error => setMessage(error.response.data.data.message))
+            : setMessage('Username and password are required');
     }
     
     return(
@@ -46,6 +48,7 @@ export const SignUp = () => {
                         handleSignUp();
                     }} 
                     title="Create account" />
+                {message &&  <SnackBar type="error" messsage={message} />}
             </form>
         </section>
     );
