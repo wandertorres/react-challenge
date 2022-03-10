@@ -1,0 +1,17 @@
+header {
+    margin-top: 240px;
+}
+
+.authenticated, .authenticatedWithButton {
+    margin-top: 1.3rem;
+}
+
+.logo {
+    &--small {
+        height: 1.9rem;
+    }
+
+    &--large{
+        height: 42px;
+    }
+}
