@@ -1,0 +1,22 @@
+header {
+    margin-top: 240px;
+    align-items: center;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.authenticated, .authenticatedWithButton {
+    margin-top: 1.3rem;
+}
+
+.logo {
+    &--small {
+        height: 1.9rem;
+    }
+
+    &--large{
+        height: 42px;
+    }
+}

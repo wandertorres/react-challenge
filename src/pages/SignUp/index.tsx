@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import logo from '../../assets/images/logo.svg';
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { SnackBar } from "../../components/SnackBar";
+import { Header } from "../_layout/Header";
 
 export const SignUp = () => {
     const [username, setUserName] = useState<string>();
@@ -23,33 +23,36 @@ export const SignUp = () => {
     }
     
     return(
-        <section className="signUp">
-            <img className="signUp-logo" src={ logo } alt="Logo" />
-            <div className="signUp-header">
-                <h1 className="header-title">Sign up</h1>
-                <Link className="header-link" to="/">Already have an account</Link>
-            </div>
-            <form className="signUp-form">
-                <Input 
-                    type="text" 
-                    placeholder="Define a username"
-                    onChange={(e) => setUserName((e.target as HTMLInputElement).value)} />
-                <Input 
-                    type="password" 
-                    placeholder="Set your password"
-                    onChange={(e) => setPassword((e.target as HTMLInputElement).value)} />
-                <Input 
-                    type="email" 
-                    placeholder="Email (optional)"
-                    onChange={(e) => setEmail((e.target as HTMLInputElement).value)} />
-                <Button 
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleSignUp();
-                    }} 
-                    title="Create account" />
-                {message &&  <SnackBar type="error" messsage={message} />}
-            </form>
-        </section>
+        <main>
+            <Header model="" />
+            <section className="signUp">
+                <div className="signUp-header">
+                    <h1 className="header-title">Sign up</h1>
+                    <Link className="header-link" to="/">Already have an account</Link>
+                </div>
+                <form className="signUp-form">
+                    <Input 
+                        type="text" 
+                        placeholder="Define a username"
+                        onChange={(e) => setUserName((e.target as HTMLInputElement).value)} />
+                    <Input 
+                        type="password" 
+                        placeholder="Set your password"
+                        onChange={(e) => setPassword((e.target as HTMLInputElement).value)} />
+                    <Input 
+                        type="email" 
+                        placeholder="Email (optional)"
+                        onChange={(e) => setEmail((e.target as HTMLInputElement).value)} />
+                    <Button 
+                        type="primary"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleSignUp();
+                        }} 
+                        title="Create account" />
+                    {message &&  <SnackBar type="error" messsage={message} />}
+                </form>
+            </section>
+        </main>
     );
 }
