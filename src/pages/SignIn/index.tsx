@@ -8,14 +8,13 @@ import axios from "axios";
 export const SignIn = () => {
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
+    const [message, setMessage] = useState<string>();
     let history = useHistory();
 
     const handleSignIn = () => {
-        username && password
-        ? axios.post('https://fuerza.test/auth/login', {username, password})
+        axios.post('https://fuerza.test/auth/login', {username, password})
             .then(() => history.push('/journal'))
-            .catch(error => console.log("Erro: "+error))
-        : console.log("Preenchar todos os campos!");
+            .catch(error => setMessage(error.response.data.data.message))
     }
     
     return(
@@ -41,6 +40,7 @@ export const SignIn = () => {
                         handleSignIn();
                     }} 
                     title="Log in" />
+                {message &&  <span>{message}</span>}
             </form>
         </section>
     );
