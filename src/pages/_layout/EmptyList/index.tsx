@@ -5,6 +5,7 @@ import imageEmpty from "../../../assets/images/image-empty.svg";
 type emptyListType = {
     listTitle?: string,
     linkTitle: string,
+    path: string,
 }
 
 export const EmptyList = ({ ...props }: emptyListType) => {
@@ -13,7 +14,7 @@ export const EmptyList = ({ ...props }: emptyListType) => {
         <div className="emptyList flex flex--column flex--align--center">
             <h2>{ props.listTitle }</h2>
             <img className="image" src={ imageEmpty } alt="Imagem para listas vazias" />
-            <Link className="link" to="/">{ props.linkTitle }</Link>
+            <Link className="link" to={ props.path }>{ props.linkTitle }</Link>
         </div>
     );
 }

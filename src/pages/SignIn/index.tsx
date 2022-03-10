@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { SnackBar } from "../../components/SnackBar";
 import { Header } from "../_layout/Header";
+import { UserContext } from "../../context/UserContext";
 
 export const SignIn = () => {
+    const { setUserId } = useContext(UserContext);
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [message, setMessage] = useState<string>();
@@ -14,7 +16,10 @@ export const SignIn = () => {
 
     const handleSignIn = () => {
         axios.post('https://fuerza.test/auth/login', {username, password})
-            .then(() => history.push('/journal'))
+            .then((response) => {
+                setUserId(response.data.user.id);
+                history.push('/journal')
+            })
             .catch(error => setMessage(error.response.data.data.message))
     }
     
