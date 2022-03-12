@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { SnackBar } from "../../components/SnackBar";
-import { Header } from "../_layout/Header";
 import { UserContext } from "../../context/UserContext";
+import { Header } from "../_layout";
+import { Button, Input, SnackBar } from "../../components";
 
 export const SignIn = () => {
     const { setUserId } = useContext(UserContext);

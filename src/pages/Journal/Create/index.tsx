@@ -1,11 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Header } from "../../_layout/Header";
-import { Input } from "../../../components/Input";
-import { Button } from "../../../components/Button";
-import { SnackBar } from "../../../components/SnackBar";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import { UserContext } from "../../../context/UserContext";
+import { Header } from "../../_layout";
+import { Input, Button, SnackBar, Journal } from "../../../components";
 
 export const JournalCreate = () => {
     const { userId } = useContext(UserContext);
@@ -25,10 +23,8 @@ export const JournalCreate = () => {
     return(
         <main>
             <Header model="authenticated" />
-            <section>
-                <div className="flex flex--column flex--align--center">
-                    <h3>{ title }</h3>
-                </div>
+            <section className="flex flex--column">
+                <Journal title={ title } model="big" />
                 <form className="flex flex--column flex--align--center">
                     <Input 
                         type="text" 

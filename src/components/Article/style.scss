@@ -1,0 +1,19 @@
+.article {
+  text-decoration: none;
+  word-break: break-all;
+  min-height: 180px;
+  padding: 1rem;
+
+  &--title {
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 800;
+  }
+
+  &--content {
+    font-size: 1.2rem;
+    max-height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
