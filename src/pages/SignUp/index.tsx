@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import { SnackBar } from "../../components/SnackBar";
-import { Header } from "../_layout/Header";
+import { Header } from "../_layout";
+import { Input, Button, SnackBar } from "../../components";
 
 export const SignUp = () => {
     const [username, setUserName] = useState<string>();

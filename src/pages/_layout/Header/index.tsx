@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "../../../components";
 import logo from '../../../assets/images/logo.svg';
-import { Button } from "../../../components/Button";
 
 type headerType = {
     model?: string,

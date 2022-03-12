@@ -4,6 +4,9 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { JournalList } from "./pages/Journal/List";
 import { JournalCreate } from "./pages/Journal/Create";
+import EntriesList from "./pages/Entries/List/List";
+import EntriesCreate from "./pages/Entries/Create/Create";
+import EntriesView from "./pages/Entries/View/View";
 
 function App(){
 
@@ -21,6 +24,15 @@ function App(){
                 </Route>
                 <Route path="/journal/create">
                     <JournalCreate />
+                </Route>
+                <Route exact path="/journal/:id/posts">
+                    <EntriesList />
+                </Route>
+                <Route path="/journal/:id/posts/create">
+                    <EntriesCreate />
+                </Route>
+                <Route path="/journal/:id/posts/view/:entryId">
+                    <EntriesView />
                 </Route>
             </Switch>
         </Router>

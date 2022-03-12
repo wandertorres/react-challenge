@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { Header } from "../../_layout/Header";
-import { EmptyList } from "../../_layout/EmptyList";
-import { JournalContext } from "../../../context/JournalContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { JournalContext } from "../../../context/JournalContext";
 import { UserContext } from "../../../context/UserContext";
-import { Journal } from "../../../interfaces/journal.interface";
+import { Header, EmptyList } from "../../_layout";
+import { Journal } from "../../../components";
 
 export const JournalList = () => {
     const { journals, setJournals, setJournalName } = useContext(JournalContext);
@@ -22,13 +21,13 @@ export const JournalList = () => {
             { journals.length > 0
             ? <>
                 <Header model="authenticatedWithButton" />
-                <section className="journallist flex flex--justify--space-between flex-wrap">
-                    {journals.map((journal: Journal) => (
+                <section className="journallist flex flex-column flex--justify--space-between flex-wrap">
+                    {journals.map((journal) => (
                         <Link
                             to={ `journal/${journal.id}/posts` }
                             onClick={ () => setJournalName(journal.title) }
                             key={ journal.id }>
-                            <h4 className="title">{ journal.title }</h4>
+                            <Journal title={ journal.title } model="--grid" />
                         </Link>
                     ))}
                 </section>
