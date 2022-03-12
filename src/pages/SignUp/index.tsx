@@ -25,12 +25,12 @@ export const SignUp = () => {
     return(
         <main>
             <Header model="" />
-            <section className="signUp">
-                <div className="signUp-header">
-                    <h1 className="header-title">Sign up</h1>
+            <section className="flex flex--column">
+                <div className="header flex flex--justify--space-between flex--align--baseline">
+                    <h1>Sign up</h1>
                     <Link className="header-link" to="/">Already have an account</Link>
                 </div>
-                <form className="signUp-form">
+                <form className="flex flex--column flex--align--center">
                     <Input 
                         type="text" 
                         placeholder="Define a username"
@@ -44,14 +44,14 @@ export const SignUp = () => {
                         placeholder="Email (optional)"
                         onChange={(e) => setEmail((e.target as HTMLInputElement).value)} />
                     <Button 
-                        type="primary"
+                        className="--primary flex flex--justify--center flex--align--center"
                         onClick={(e) => {
                             e.preventDefault();
                             handleSignUp();
                         }} 
                         title="Create account" />
-                    {message &&  <SnackBar type="error" messsage={message} />}
                 </form>
+                { message &&  <SnackBar type="error" messsage={message} /> }
             </section>
         </main>
     );

@@ -25,20 +25,24 @@ export const JournalCreate = () => {
     return(
         <main>
             <Header model="authenticated" />
-            <section className="journalCreate flex flex--column flex--align--center">
-                <h3>{title}</h3>
-                <Input 
-                    type="text" 
-                    placeholder="Define a title"
-                    onChange={(e) => setTitle((e.target as HTMLInputElement).value)} />
-                <Button
-                    type="primary"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleJournalCreate();
-                    }} 
-                    title="Save journal" />
-                {message &&  <SnackBar type="error" messsage={message} />}
+            <section>
+                <div className="flex flex--column flex--align--center">
+                    <h3>{ title }</h3>
+                </div>
+                <form className="flex flex--column flex--align--center">
+                    <Input 
+                        type="text" 
+                        placeholder="Define a title"
+                        onChange={(e) => setTitle((e.target as HTMLInputElement).value)} />
+                    <Button
+                        className="--primary"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleJournalCreate();
+                        }} 
+                        title="Save journal" />
+                </form>
+                { message &&  <SnackBar type="error" messsage={ message } /> }
             </section>
         </main>
     );

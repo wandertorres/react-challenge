@@ -4,10 +4,10 @@
     margin: 0; 
     padding: 0; 
     outline: 0; 
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
     box-sizing: border-box;
-    font-family: Montserrat;
+
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
 }
 
 html,
@@ -16,16 +16,46 @@ body {
 }
 
 main {
-    @include size-main;
+    @include responsive-main; 
     background: url('../images/image-base.svg') no-repeat left $BACKGROUND-COLOR-BASE;
+    background-size: 80vmin;
+    background-position-y: 10vmin;
 }
 
-a, h1 {
+section {
+    .header {
+        padding: 3.5rem 0 1.5rem 0; 
+    }
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.5rem;
     color: $PRIMARY;
 }
 
-input {
+h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: $BLACK;
+}
+
+a {
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 1rem;
     color: $SECONDARY;
+}
+
+input + input {
+    margin-top: 1.5rem;
+}
+
+input + button,
+a + button {
+    margin-top: 4rem;
 }
 
 .flex {

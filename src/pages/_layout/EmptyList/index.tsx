@@ -11,7 +11,7 @@ type emptyListType = {
 export const EmptyList = ({ ...props }: emptyListType) => {
 
     return(
-        <div className="emptyList flex flex--column flex--align--center">
+        <div className="emptylist flex flex--column flex--align--center">
             <h2>{ props.listTitle }</h2>
             <img className="image" src={ imageEmpty } alt="Imagem para listas vazias" />
             <Link className="link" to={ props.path }>{ props.linkTitle }</Link>

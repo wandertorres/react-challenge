@@ -4,7 +4,7 @@ import logo from '../../../assets/images/logo.svg';
 import { Button } from "../../../components/Button";
 
 type headerType = {
-    model: string,
+    model?: string,
     link?: string,
     onClick?: MouseEventHandler;
 }
@@ -20,7 +20,7 @@ export const Header = ({ ...props }: headerType) => {
                     {
                         props.model === "authenticatedWithButton" &&
                         <Link to="journal/create">
-                            <Button title="+ Add journal" type="secundary"  />
+                            <Button title="+ Add journal" className="--secundary"  />
                         </Link>
                     }
                 </>

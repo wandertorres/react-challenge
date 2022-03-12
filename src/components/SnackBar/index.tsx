@@ -5,7 +5,9 @@ type snackType = {
     type: string
 }
 
-export const SnackBar = ({messsage, type}: snackType) => {
+export const SnackBar = ({ ...props }: snackType) => {
 
-    return <span className={type}>{messsage}</span>
+    return <span className={"flex flex--justify--center flex--align--center " +props.type }>
+        { props.messsage }
+    </span>
 }

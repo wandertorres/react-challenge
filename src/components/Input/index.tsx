@@ -6,9 +6,9 @@ type inputType = {
     onChange: ChangeEventHandler;
 }
 
-export const Input = ({placeholder, type, onChange}: inputType) => {
+export const Input = ({ ...props }: inputType) => {
     
     return(
-        <input className="input" type={ type } placeholder={ placeholder } onChange={ onChange } />            
+        <input className="input" type={ props.type } placeholder={ props.placeholder } onChange={ props.onChange } />            
     );
 }

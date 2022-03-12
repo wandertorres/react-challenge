@@ -26,12 +26,12 @@ export const SignIn = () => {
     return(
         <main>
             <Header model="" />
-            <section className="signIn">
-                <div className="signIn-header">
-                    <h1 className="header-title">Sign In</h1>
-                    <Link className="header-link" to="/signup">Sign Up</Link>
+            <section className="flex flex--column">
+                <div className="header flex flex--justify--space-between flex--align--baseline">
+                    <h1>Sign in</h1>
+                    <Link to="/signup">Sign Up</Link>
                 </div>
-                <form className="signIn-form">
+                <form className="signin-form flex flex--column flex--align--center">
                     <Input 
                         type="text" 
                         placeholder="Define a username"
@@ -42,14 +42,14 @@ export const SignIn = () => {
                         onChange={(e) => setPassword((e.target as HTMLInputElement).value)} />
                     <a className="form-link" href="#link">Forgot password?</a>
                     <Button
-                        type="primary"
+                        className="--primary flex flex--justify--center flex--align--center"
                         onClick={(e) => {
                             e.preventDefault();
                             handleSignIn();
                         }} 
                         title="Log in" />
-                    {message &&  <SnackBar type="error" messsage={message} />}
                 </form>
+                { message &&  <SnackBar type="error" messsage={ message } /> }
             </section>
         </main>
     );
