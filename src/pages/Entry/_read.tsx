@@ -3,9 +3,9 @@ import { Link, useParams, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 import { JournalContext } from '../../context/JournalContext';
 import { Header, EmptyList } from '../_layout';
-import { Entrie } from "../../components";
+import { Entry } from "../../components";
 
-export const EntrieReadAll = () => {
+export const EntryReadAll = () => {
     const { entries, setEntries, journalName } = useContext(JournalContext);
     let { id }: any = useParams();
     let { url } = useRouteMatch();
@@ -20,26 +20,26 @@ export const EntrieReadAll = () => {
         <main>
             { entries.length > 0 
             ? <>
-                <Header model="authenticatedWithButton" />
+                <Header titleButton='+ Add note' model="authenticatedWithButton" />
                 <section className='entrieslist'>
                     <div className="entrieslist__container flex flex--column">
                         <Link className="navigation" to={`/journal`}>
                             {`< ${ journalName }`}
                         </Link>
                         <div className="flex flex--row flex--justify--space-between flex--wrap">
-                            {entries.map((entry: any, i: number) => (
+                            { entries.map((entry: any, i: number) => (
                                 <Link
                                     className="entries--create--entry"
                                     key={ i }
                                     to={`${ url }/view/${ i }`}>
-                                    <Entrie key={ i } title={ entry.title } />
+                                    <Entry key={ i } title={ entry.title } content={ entry } />
                                 </Link>
-                            ))}
+                            )) }
                         </div>
                     </div>
                 </section>
                 </> : <>
-                    <Header model="authenticated" />
+                    <Header titleButton="+ Add note" model="authenticated" />
                     <section>
                         <EmptyList path="posts/create" linkTitle='Create a note' />
                     </section>
@@ -49,7 +49,7 @@ export const EntrieReadAll = () => {
     );
 }
 
-export const EntrieReadOne = () => {
+export const EntryReadOne = () => {
     const { journalName, entries } = useContext(JournalContext);
     let { id, entryId }: any = useParams();
 
@@ -59,10 +59,10 @@ export const EntrieReadOne = () => {
               <div className="flex flex--column">
                   <Link className="navigation" to={ `/journal/${id}/posts` }>{ `< ${ journalName }` }</Link>
                   <div className="flex flex--column">
-                      <Entrie
+                      <Entry
                         title={(entries[entryId] as any).title}
                         content={(entries[entryId] as any).content}
-                        type="fullwidth"
+                        model="fullwidth"
                       />
                 </div>
             </div>

@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { Input } from "./Input";
 import { SnackBar } from "./SnackBar";
 import { Journal } from "./Journal";
-import { Entrie } from "./Entrie";
+import { Entry } from "./Entry";
 import {  } from "./";
 
 export { 
@@ -10,5 +10,5 @@ export {
     Input,
     SnackBar,
     Journal,
-    Entrie,
+    Entry,
  };

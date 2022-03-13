@@ -20,7 +20,7 @@ export const JournalRead = () => {
         <main>
             { journals.length > 0
             ? <>
-                <Header model="authenticatedWithButton" />
+                <Header titleButton="+ Add journal" model="authenticatedWithButton" />
                 <section className="journallist">
                     <div className="journallist__container">
                         {journals.map((journal) => (

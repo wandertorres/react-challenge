@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 
 type buttonType = {
-    title: string;
+    title?: string;
     className: string;
     onClick?: MouseEventHandler;
 }
@@ -9,8 +9,8 @@ type buttonType = {
 export const Button = ({ ...props }: buttonType) => {
     
     return(
-        <button className={"button button"+props.className} onClick={ props.onClick }>
-            {props.title}
+        <button className={ "button button"+props.className } onClick={ props.onClick }>
+            { props.title }
         </button>
     );
 }

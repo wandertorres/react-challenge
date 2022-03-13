@@ -51,11 +51,13 @@ a {
     color: $SECONDARY;
 }
 
-input + input {
+input + input,
+input + textarea {
     margin-top: 1.5rem;
 }
 
 input + button,
+textarea, button,
 a + button {
     margin-top: 3.5rem;
 }
