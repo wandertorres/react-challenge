@@ -2,11 +2,8 @@ import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
-import { JournalList } from "./pages/Journal/List";
-import { JournalCreate } from "./pages/Journal/Create";
-import EntriesList from "./pages/Entries/List/List";
-import EntriesCreate from "./pages/Entries/Create/Create";
-import EntriesView from "./pages/Entries/View/View";
+import { JournalCreate, JournalRead }  from "./pages/Journal";
+import { EntrieCreate, EntrieReadAll, EntrieReadOne }  from "./pages/Entrie";
 
 function App(){
 
@@ -20,19 +17,19 @@ function App(){
                     <SignUp />
                 </Route>
                 <Route exact path="/journal">
-                    <JournalList />
+                    <JournalRead />
                 </Route>
                 <Route path="/journal/create">
                     <JournalCreate />
                 </Route>
-                <Route exact path="/journal/:id/posts">
-                    <EntriesList />
-                </Route>
                 <Route path="/journal/:id/posts/create">
-                    <EntriesCreate />
+                    <EntrieCreate />
+                </Route>
+                <Route exact path="/journal/:id/posts">
+                    <EntrieReadAll />
                 </Route>
                 <Route path="/journal/:id/posts/view/:entryId">
-                    <EntriesView />
+                    <EntrieReadOne />
                 </Route>
             </Switch>
         </Router>

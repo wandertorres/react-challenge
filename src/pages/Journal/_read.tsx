@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { JournalContext } from "../../../context/JournalContext";
-import { UserContext } from "../../../context/UserContext";
-import { Header, EmptyList } from "../../_layout";
-import { Journal } from "../../../components";
+import { JournalContext } from "../../context/JournalContext";
+import { UserContext } from "../../context/UserContext";
+import { Header, EmptyList } from "../_layout";
+import { Journal } from "../../components";
 
-export const JournalList = () => {
+export const JournalRead = () => {
     const { journals, setJournals, setJournalName } = useContext(JournalContext);
     const { userId } = useContext(UserContext);
 

@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { UserContext } from '../../../context/UserContext';
-import { JournalContext } from '../../../context/JournalContext';
-import { Header } from '../../_layout';
-import { Input, Button } from '../../../components';
+import { UserContext } from '../../context/UserContext';
+import { JournalContext } from '../../context/JournalContext';
+import { Header } from '../_layout';
+import { Input, Button } from '../../components';
 
-export default function EntriesCreate() {
+export const EntrieCreate = () => {
     const { userId } = useContext(UserContext);
     const { journalName } = useContext(JournalContext);
     const [title, setTitle] = useState<string>();

@@ -5,8 +5,8 @@
 //pages
 @import "../../pages/SignIn/style.scss";
 @import "../../pages/SignUp/style.scss";
-@import "../../pages/Journal/List/style.scss";
-@import "../../pages/Journal/Create/style.scss";
+@import "../../pages/Journal/style.scss";
+@import "../../pages/Entrie/style.scss";
 
 //pages layouts
 @import "../../pages/_layout/Header/style.scss";
@@ -16,5 +16,5 @@
 @import "../../components/Input/style.scss";
 @import "../../components/Button/style.scss";
 @import "../../components/SnackBar/style.scss";
-@import "../../components/Article/style.scss";
+@import "../../components/Entrie/style.scss";
 @import "../../components/Journal/style.scss";

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import { UserContext } from "../../../context/UserContext";
-import { Header } from "../../_layout";
-import { Input, Button, SnackBar, Journal } from "../../../components";
+import { UserContext } from "../../context/UserContext";
+import { Header } from "../_layout";
+import { Input, Button, SnackBar, Journal } from "../../components";
 
 export const JournalCreate = () => {
     const { userId } = useContext(UserContext);
