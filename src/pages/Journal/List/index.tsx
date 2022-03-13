@@ -21,15 +21,17 @@ export const JournalList = () => {
             { journals.length > 0
             ? <>
                 <Header model="authenticatedWithButton" />
-                <section className="journallist flex flex-column flex--justify--space-between flex-wrap">
-                    {journals.map((journal) => (
-                        <Link
-                            to={ `journal/${journal.id}/posts` }
-                            onClick={ () => setJournalName(journal.title) }
-                            key={ journal.id }>
-                            <Journal title={ journal.title } model="--grid" />
-                        </Link>
-                    ))}
+                <section className="journallist">
+                    <div className="journallist__container">
+                        {journals.map((journal) => (
+                            <Link
+                                to={ `journal/${journal.id}/posts` }
+                                onClick={ () => setJournalName(journal.title) }
+                                key={ journal.id }>
+                                <Journal title={ journal.title } model="--grid" />
+                            </Link>
+                        ))}
+                    </div>
                 </section>
             </> 
             : <>
