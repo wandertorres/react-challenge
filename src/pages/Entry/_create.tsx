@@ -16,13 +16,15 @@ export const EntryCreate = () => {
     let { id }: any = useParams();
 
     const handleCreateEntry = () => {
-        axios.post(`https://fuerza.test/journals/entry/${ id }`, {
+        title && content
+        ? axios.post(`https://fuerza.test/journals/entry/${ id }`, {
             title,
             content,
             userId,
         })
         .then(() => history.push(`/journal/${ id }/posts`))
-        .catch((error) => setMessage(error.response.data.data.message));
+        .catch((error) => setMessage(error.response.data.data.message))
+        : setMessage("Title and content are required");
     }
     
     return (
