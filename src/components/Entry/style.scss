@@ -1,6 +1,4 @@
 .entry {
-    background-color: $background-color-white-linen;
-    color: $text-color-tuna;
 
     &__container {
         width: 100%;
@@ -25,7 +23,7 @@
         color: #333438;
         max-height: 50vh;
         overflow-x: hidden;
-        box-shadow: -5px 5px 20px $book-box-shadow;
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.12);
 
     }
 }

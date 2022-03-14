@@ -16,7 +16,7 @@ export const EntryCreate = () => {
     let { id }: any = useParams();
 
     const handleCreateEntry = () => {
-        axios.post(`https://fuerza.test/journals/entry/${ userId }`, {
+        axios.post(`https://fuerza.test/journals/entry/${ id }`, {
             title,
             content,
             userId,
