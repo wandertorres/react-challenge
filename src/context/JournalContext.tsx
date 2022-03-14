@@ -1,18 +1,23 @@
 import React, { createContext, SetStateAction, useEffect, useState } from 'react';
+import { Entry } from '../interfaces/entry.interface';
 import { Journal } from '../interfaces/journal.interface';
   
 interface JounalContextInterface {
     journals: Journal[];
     journalName: string;
+    entries: Entry[];
     setJournals: React.Dispatch<SetStateAction<Journal[]>>
     setJournalName: React.Dispatch<SetStateAction<string>>
+    setEntries: React.Dispatch<SetStateAction<Entry[]>>
 }
 
 const defaultContext: JounalContextInterface = {
     journals: [],
     journalName: "",
+    entries: [],
     setJournals: () => {},
-    setJournalName: () => {}
+    setJournalName: () => {},
+    setEntries: () => {},
 }
 
 export const JournalContext = createContext<JounalContextInterface>(defaultContext);
@@ -20,6 +25,7 @@ export const JournalContext = createContext<JounalContextInterface>(defaultConte
 export const JournalProvider: React.FC = ({ children }) => {
     const [journals, setJournals] = useState(defaultContext.journals);
     const [journalName, setJournalName] = useState(defaultContext.journalName);
+    const [entries, setEntries] = useState(defaultContext.entries);
 
     useEffect(() => {
         
@@ -30,8 +36,10 @@ export const JournalProvider: React.FC = ({ children }) => {
             value={{
                 journals,
                 journalName,
+                entries,
                 setJournals,
-                setJournalName
+                setJournalName,
+                setEntries,
             }}
         >
             {children}

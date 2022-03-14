@@ -1,12 +1,16 @@
-.emptyList {
-    margin-top: 10rem;
+.emptylist {
+    padding-top: 6rem;
+
+    h2 {
+        line-height: 0;
+    }
 
     img {
-        margin: 4rem 0;
+        width: 90%;
+        margin: 7rem 0 4rem 0rem;
     }
 
     .link {
-        font-weight: 600;
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 }

@@ -9,14 +9,35 @@ $WHITE: #FFFFFF;
 $PLACEHOLDER-FOCUS:#736D6B;
 
 /*|---------------|BREAKPOINTS|---------------*/
-$BREAKPOINT-MOBILE-M: "(min-width: 320px)";
-$BREAKPOINT-MOBILE-L: "(min-width: 375px)";
-$BREAKPOINT-TABLET: "(min-width: 425px)";
-$BREAKPOINT-DESK: "(min-width: 1280px)";
+$BREAKPOINT-MOBILE-S: "only screen and (max-width: 320px)";
+$BREAKPOINT-MOBILE-M: "only screen and (min-width: 375px) and (max-width: 424px)";
+$BREAKPOINT-MOBILE-L: "only screen and (min-width: 425px) and (max-width: 767px)";
+$BREAKPOINT-TABLET: "only screen and (min-width: 768px) and (max-width: 1023px)";
+$BREAKPOINT-DESK: "only screen and (min-width: 1024px)  and (max-width: 1439px)";
+$BREAKPOINT-DESK-L: "only screen and (min-width: 1440px)";
 
 /*|---------------|MIXINS|---------------*/
-@mixin size-main {
-    height: 812px;
-    padding: 2rem;
-    border-radius: 0px;
+@mixin responsive-main {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+
+    @media #{$BREAKPOINT-DESK-L} {
+        padding: 2rem 35rem;
+    }
+
+    @media #{$BREAKPOINT-DESK} {
+        padding: 2rem 20rem;
+    }
+
+    @media #{$BREAKPOINT-TABLET} {
+        padding: 2rem 15rem;
+    }
+
+    @media #{$BREAKPOINT-MOBILE-L} {
+        padding: 2rem 2.5rem;
+    }
+
+    @media #{$BREAKPOINT-MOBILE-M} {
+        padding: 2rem 2rem;
+    }
 }

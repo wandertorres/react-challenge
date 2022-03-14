@@ -1,0 +1,29 @@
+.entry {
+
+    &__container {
+        width: 100%;
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-around;
+        min-height: 180px;
+        word-break: break-all;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 1rem;
+        max-height: 80vh;
+    }
+
+    &__title, &__content {
+        padding: 0.5rem;
+        margin: 5px;
+        width: 90%;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: #333438;
+        max-height: 50vh;
+        overflow-x: hidden;
+        box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.12);
+
+    }
+}

@@ -1,22 +1,33 @@
-header {
-    margin-top: 240px;
-    align-items: center;
+.header {
 
-    a {
-        text-decoration: none;
-    }
-}
-
-.authenticated, .authenticatedWithButton {
-    margin-top: 1.3rem;
-}
-
-.logo {
     &--small {
-        height: 1.9rem;
+        height: 5vh;
+        align-items: center;
+
+        img {
+            height: 1.9rem;
+        }
     }
 
     &--large{
-        height: 42px;
+        height: 30vh;
+        align-items: flex-end;
+
+        img {
+            height: 2.6rem;
+        }
     }
 }
+
+.nav__title {
+    font-family: 'Abhaya Libre';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: #000000;
+}
+    

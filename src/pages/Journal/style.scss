@@ -1,5 +1,11 @@
-.journalList {
-    overflow: hidden;
+.journallist {
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        max-height: 80vh;
+    }
 
     .title {
         padding: 5px;
