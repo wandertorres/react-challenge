@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory, useParams, Link } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../../context/UserContext';
 import { JournalContext } from '../../context/JournalContext';
@@ -16,20 +16,20 @@ export const EntryCreate = () => {
     let { id }: any = useParams();
 
     const handleCreateEntry = () => {
-        axios.post(`https://fuerza.test/journals/entry/${id}`, {
+        axios.post(`https://fuerza.test/journals/entry/${ userId }`, {
             title,
             content,
             userId,
         })
-        .then(() => history.push(`/journal/${id}/posts`))
+        .then(() => history.push(`/journal/${ id }/posts`))
         .catch((error) => setMessage(error.response.data.data.message));
     }
     
     return (
         <main>
-            <Header model="autenticated" />
+            <Header size='--small' />
             <section className='entryRead'>
-                <Link to={ `/journal/${ id }/posts` } title={`< ${ journalName }`} />
+                <Header size='--small' nav={{title:journalName, to:`/journal/${ id }/posts`}} />
                 <form className="flex flex--column flex--align--center">
                     <Input
                         type="text"

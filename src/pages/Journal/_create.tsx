@@ -22,7 +22,7 @@ export const JournalCreate = () => {
 
     return(
         <main>
-            <Header model="authenticated" />
+            <Header size="--small" />
             <section className="journalcreate flex flex--column">
                 <Journal title={ title } />
                 <form className="flex flex--column flex--align--center">

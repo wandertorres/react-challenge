@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { JournalCreate, JournalRead }  from "./pages/Journal";
-import { EntryCreate, EntryReadAll, EntryReadOne }  from "./pages/Entry";
+import { EntryCreate, EntryReadAll }  from "./pages/Entry";
 
 function App(){
 
@@ -27,9 +27,6 @@ function App(){
                 </Route>
                 <Route exact path="/journal/:id/posts">
                     <EntryReadAll />
-                </Route>
-                <Route path="/journal/:id/posts/view/:entryId">
-                    <EntryReadOne />
                 </Route>
             </Switch>
         </Router>

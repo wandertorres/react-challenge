@@ -20,22 +20,22 @@ export const JournalRead = () => {
         <main>
             { journals.length > 0
             ? <>
-                <Header titleButton="+ Add journal" model="authenticatedWithButton" />
+                <Header size="--small" button={{title:"+ Add journal", to:"journal/create"}} />
                 <section className="journallist">
                     <div className="journallist__container">
-                        {journals.map((journal) => (
+                        { journals.map((journal) => (
                             <Link
                                 to={ `journal/${journal.id}/posts` }
                                 onClick={ () => setJournalName(journal.title) }
                                 key={ journal.id }>
                                 <Journal title={ journal.title } model="--grid" />
                             </Link>
-                        ))}
+                        )) }
                     </div>
                 </section>
             </> 
             : <>
-                <Header model="authenticated" />
+                <Header size="--small" />
                 <section>
                     <EmptyList linkTitle="Create a journal" path="/journal/create" />
                 </section>

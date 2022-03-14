@@ -1,28 +1,41 @@
-import React, { MouseEventHandler } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../../components";
 import logo from '../../../assets/images/logo.svg';
 
 type headerType = {
-    model?: string,
-    titleButton?: string,
-    linkButton?: string,
-    onClick?: MouseEventHandler;
+    size: "--small" | "--large",
+    nav?: {
+        to: string,
+        title: string
+    },
+    button?: {
+        to: string,
+        title: string
+    }
 }
 
 export const Header = ({ ...props }: headerType) => {
 
     return(
-        <header className={props.model+" flex flex--justify--space-between"}>
-            {props.model === ""
-                ? <img className="logo--large" src={ logo } alt="Logo" />
-                : <>
-                    <img className="logo--small" src={ logo } alt="Logo" />
+        <header className={`header${ props.size } flex flex--justify--space-between`}>
+            { props.nav
+                ? <>
+                    <Link className="nav__title" to={ props.nav.to }> {`< ${ props.nav.title }` }</Link>
                     {
-                        props.model === "authenticatedWithButton" &&
-                        <Link to="journal/create">
-                            <Button title={ props.titleButton } className="--secundary"  />
+                        props.button &&
+                        <Link to={ props.button.to }>
+                            <Button title={ props.button.title } className="--secundary"  />
                         </Link>
+                    }
+                </> 
+                : <>
+                    <img src={ logo } alt="Logo" />
+                    { 
+                        props.button && 
+                        <Link to={ props.button.to }>
+                            <Button title={ props.button.title } className="--secundary"  />
+                        </Link> 
                     }
                 </>
             }

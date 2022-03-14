@@ -3,35 +3,38 @@
     color: $text-color-tuna;
 
     &__container {
+        width: 100%;
+        padding-top: 2rem;
         display: flex;
         justify-content: space-around;
+        min-height: 180px;
+        word-break: break-all;
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+        gap: 1rem;
+        max-height: 80vh;
     }
 
     &__title {
+        padding: 0.5rem;
+        margin: 5px;
+        width: 90%;
+        font-size: 1.5rem;
+        font-weight: 800;
         box-shadow: -5px 5px 20px $book-box-shadow;
     }
 
     &__content {
-        box-shadow: -5px 5px 20px $book-box-shadow;
-    }
-}
-
-.entrie {
-      text-decoration: none;
-      word-break: break-all;
-      min-height: 180px;
-      padding: 1rem;
-
-    &__title {
-        font-size: 1.5rem;
-        padding-bottom: 0.5rem;
-        font-weight: 800;
-    }
-
-    &--content {
-        font-size: 1.2rem;
+        padding: 0.5rem;
+        margin: 5px;
+        width: 90%;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        color: #333438;
         max-height: 50vh;
-        overflow-y: scroll;
         overflow-x: hidden;
+        box-shadow: -5px 5px 20px $book-box-shadow;
+
     }
 }

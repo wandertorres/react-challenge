@@ -3,7 +3,6 @@ import React from 'react';
 type entryProps = {
     title: string;
     content?: string;
-    model?: string;
 };
 
 export const Entry = ({ ...props }: entryProps) => {
@@ -13,7 +12,7 @@ export const Entry = ({ ...props }: entryProps) => {
                 <h4>{ props.title }</h4>
             </div>
             <div className="entry__content">
-                <span>{ props.content }</span>
+                <h4>{ props.content }</h4>
             </div>
         </div>
     );

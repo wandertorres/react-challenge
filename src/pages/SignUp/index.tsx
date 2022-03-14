@@ -22,7 +22,7 @@ export const SignUp = () => {
     
     return(
         <main>
-            <Header model="" />
+            <Header size="--large" />
             <section className="flex flex--column">
                 <div className="header flex flex--justify--space-between flex--align--baseline">
                     <h1>Sign up</h1>
