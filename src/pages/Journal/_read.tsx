@@ -20,7 +20,7 @@ export const JournalRead = () => {
         <main>
             { journals.length > 0
             ? <>
-                <Header size="--small" button={{title:"+ Add journal", to:"journal/create"}} />
+                <Header size="--small" button={{ title:"+ Add journal", to:"journal/create" }} />
                 <section className="journallist">
                     <div className="journallist__container">
                         { journals.map((journal) => (

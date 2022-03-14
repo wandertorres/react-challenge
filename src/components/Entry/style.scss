@@ -15,16 +15,7 @@
         max-height: 80vh;
     }
 
-    &__title {
-        padding: 0.5rem;
-        margin: 5px;
-        width: 90%;
-        font-size: 1.5rem;
-        font-weight: 800;
-        box-shadow: -5px 5px 20px $book-box-shadow;
-    }
-
-    &__content {
+    &__title, &__content {
         padding: 0.5rem;
         margin: 5px;
         width: 90%;

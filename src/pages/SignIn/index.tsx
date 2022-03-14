@@ -6,7 +6,7 @@ import { Header } from "../_layout";
 import { Button, Input, SnackBar } from "../../components";
 
 export const SignIn = () => {
-    const { setUserId } = useContext(UserContext);
+    const { setUserId, setIsLogged } = useContext(UserContext);
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [message, setMessage] = useState<string>();
@@ -16,6 +16,7 @@ export const SignIn = () => {
         axios.post('https://fuerza.test/auth/login', {username, password})
             .then((response) => {
                 setUserId(response.data.user.id);
+                setIsLogged(true);
                 history.push('/journal')
             })
             .catch(error => setMessage(error.response.data.data.message))

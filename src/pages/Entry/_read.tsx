@@ -37,7 +37,7 @@ export const EntryReadAll = () => {
                 </> : <>
                     <Header size='--small' />
                     <section>
-                        <EmptyList path="posts/create" linkTitle='Create a note' />
+                        <EmptyList listTitle={ journalName } path="posts/create" linkTitle='Create a note' />
                     </section>
                 </>
             }
