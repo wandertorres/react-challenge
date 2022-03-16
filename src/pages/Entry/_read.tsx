@@ -25,20 +25,20 @@ export const EntryReadAll = () => {
     return (
         <main>
             { entries.length > 0 
-            ? <>
-                <Header size='--small' />
-                <section className='entrieslist'>
-                    <Header 
-                        size='--small' 
-                        nav={{title: journalName, to:"/journal"}}
-                        button={{title:"+ Add note", to:`${ url }/create`}} />
-                    <div className="entrieslist__container">
-                        { entries.map((entry: any, i: number) => (
-                            <Entry key={ i } title={ entry.title } content={ entry.content } />
-                        )) }
-                    </div>
-                    { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
-                </section>
+                ? <>
+                    <Header size='--small' />
+                    <section className='entrieslist'>
+                        <Header 
+                            size='--small' 
+                            nav={{title: journalName, to:"/journal"}}
+                            button={{title:"+ Add note", to:`${ url }/create`}} />
+                        <div className="entrieslist__container">
+                            { entries.map((entry: any, i: number) => (
+                                <Entry key={ i } title={ entry.title } content={ entry.content } />
+                            )) }
+                        </div>
+                        { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
+                    </section>
                 </> : <>
                     <Header size='--small' />
                     <section>

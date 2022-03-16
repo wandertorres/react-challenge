@@ -3,15 +3,19 @@ import React, { createContext, SetStateAction, useEffect, useState } from 'react
 interface MessageContextInterface {
     messageSuccess: string;
     messageError: string;
+    loading: boolean;
     setMessageSuccess: React.Dispatch<SetStateAction<string>>;
     setMessageError: React.Dispatch<SetStateAction<string>>;
+    setLoading: React.Dispatch<SetStateAction<boolean>>;
 }
 
 const defaultContext: MessageContextInterface = {
     messageSuccess: "",
     messageError: "",
+    loading: false,
     setMessageSuccess: () => {},
     setMessageError: () => {},
+    setLoading: () => {},
 }
 
 export const MessageContext = createContext<MessageContextInterface>(defaultContext);
@@ -19,6 +23,7 @@ export const MessageContext = createContext<MessageContextInterface>(defaultCont
 export const MessageProvider: React.FC = ({ children }) => {
     const [messageSuccess, setMessageSuccess] = useState(defaultContext.messageSuccess);
     const [messageError, setMessageError] = useState(defaultContext.messageError);
+    const [loading, setLoading] = useState(defaultContext.loading);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -34,8 +39,10 @@ export const MessageProvider: React.FC = ({ children }) => {
             value={{
                 messageSuccess,
                 messageError,
+                loading,
                 setMessageSuccess,
-                setMessageError
+                setMessageError,
+                setLoading
             }}
         >
             {children}

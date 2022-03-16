@@ -13,9 +13,10 @@ export const JournalRead = () => {
     const { userId } = useContext(UserContext);
 
     useEffect(() => {
-        axios.get(`https://fuerza.test/journals/${ userId }`).then((response) => {
-          setJournals(response.data.journals);
-        });
+        axios.get(`https://fuerza.test/journals/${ userId }`)
+            .then((response) => {
+                setJournals(response.data.journals);
+            });
     }, [setJournals, userId]);
 
     useEffect(() => {
@@ -25,28 +26,29 @@ export const JournalRead = () => {
     return(
         <main>
             { journals.length > 0
-            ? <>
-                <Header size="--small" button={{ title:"+ Add journal", to:"journal/create" }} />
-                <section className="journallist">
-                    <div className="journallist__container">
-                        { journals.map((journal) => (
-                            <Link
-                                to={ `journal/${journal.id}/posts` }
-                                onClick={ () => setJournalName(journal.title) }
-                                key={ journal.id }>
-                                <Journal title={ journal.title } index={ journal.id } />
-                            </Link>
-                        )) }
-                    </div>
-                    { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
-                </section>
-            </> 
-            : <>
-                <Header size="--small" />
-                <section>
-                    <EmptyList linkTitle="Create a journal" path="/journal/create" />
-                </section>
-            </> }
+                ?  <>
+                    <Header size="--small" button={{ title:"+ Add journal", to:"journal/create" }} />
+                    <section className="journallist">
+                        <div className="journallist__container">
+                            { journals.map((journal) => (
+                                <Link
+                                    to={ `journal/${journal.id}/posts` }
+                                    onClick={ () => setJournalName(journal.title) }
+                                    key={ journal.id }>
+                                    <Journal title={ journal.title } index={ journal.id } />
+                                </Link>
+                            )) }
+                        </div>
+                        { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
+                    </section>
+                </> 
+                : <>
+                    <Header size="--small" />
+                    <section>
+                        <EmptyList linkTitle="Create a journal" path="/journal/create" />
+                    </section>
+                </> 
+            }
         </main>
     );
 }
