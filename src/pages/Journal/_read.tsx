@@ -28,7 +28,7 @@ export const JournalRead = () => {
                                 to={ `journal/${journal.id}/posts` }
                                 onClick={ () => setJournalName(journal.title) }
                                 key={ journal.id }>
-                                <Journal title={ journal.title } model="--grid" />
+                                <Journal title={ journal.title } index={ journal.id } />
                             </Link>
                         )) }
                     </div>
