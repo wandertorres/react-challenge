@@ -1,15 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
+import { MessageContext } from "../../context/MessageContext";
 import { Header } from "../_layout";
 import { Button, Input, SnackBar } from "../../components";
 
 export const SignIn = () => {
     const { setUserId, setIsLogged } = useContext(UserContext);
+    const { messageSuccess, messageError, setMessageError } = useContext(MessageContext);
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
-    const [message, setMessage] = useState<string>();
     let history = useHistory();
 
     const handleSignIn = () => {
@@ -19,9 +20,13 @@ export const SignIn = () => {
                 setIsLogged(true);
                 history.push('/journal')
             })
-            .catch(error => setMessage(error.response.data.data.message))
+            .catch(error => setMessageError(error.response.data.data.message))
     }
     
+    useEffect(() => {
+        setMessageError("");
+    }, [setMessageError]);
+
     return(
         <main>
             <Header size="--large" />
@@ -48,7 +53,8 @@ export const SignIn = () => {
                         }} 
                         title="Log in" />
                 </form>
-                { message &&  <SnackBar type="error" messsage={ message } /> }
+                { messageError &&  <SnackBar type="error" messsage={ messageError } /> }
+                { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
             </section>
         </main>
     );

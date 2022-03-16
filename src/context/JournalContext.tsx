@@ -6,9 +6,9 @@ interface JounalContextInterface {
     journals: Journal[];
     journalName: string;
     entries: Entry[];
-    setJournals: React.Dispatch<SetStateAction<Journal[]>>
-    setJournalName: React.Dispatch<SetStateAction<string>>
-    setEntries: React.Dispatch<SetStateAction<Entry[]>>
+    setJournals: React.Dispatch<SetStateAction<Journal[]>>;
+    setJournalName: React.Dispatch<SetStateAction<string>>;
+    setEntries: React.Dispatch<SetStateAction<Entry[]>>;
 }
 
 const defaultContext: JounalContextInterface = {

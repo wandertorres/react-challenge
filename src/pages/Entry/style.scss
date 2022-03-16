@@ -1,3 +1,13 @@
+.entrieslist__container {
+    display: grid;
+    overflow: scroll;
+    align-content: baseline;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-height: 75vh;
+    height: 75vh;
+}
+
 .entries--create {
     &--entry {
         width: 48%;
@@ -10,7 +20,7 @@
     
     textarea {
         width: 100%;
-        height: 22rem;
+        height: 19rem;
         padding: 0.8rem 0.5rem;
         border-radius: 0.3rem;
         border: none;

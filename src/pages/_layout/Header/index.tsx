@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../../../components";
 import logo from '../../../assets/images/logo.svg';
+import back from '../../../assets/images/back.svg';
 
 type headerType = {
     size: "--small" | "--large",
@@ -21,7 +22,9 @@ export const Header = ({ ...props }: headerType) => {
         <header className={`header${ props.size } flex flex--justify--space-between`}>
             { props.nav
                 ? <>
-                    <Link className="nav__title" to={ props.nav.to }> {`< ${ props.nav.title }` }</Link>
+                    <Link className="nav__title" to={ props.nav.to }>
+                        <img className="back" src={ back } alt="Back" />{`${ props.nav.title }` 
+                    }</Link>
                     {
                         props.button &&
                         <Link to={ props.button.to }>
@@ -30,7 +33,7 @@ export const Header = ({ ...props }: headerType) => {
                     }
                 </> 
                 : <>
-                    <img src={ logo } alt="Logo" />
+                    <img className="logo" src={ logo } alt="Logo" />
                     { 
                         props.button && 
                         <Link to={ props.button.to }>

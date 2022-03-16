@@ -1,9 +1,35 @@
 span {
-    margin-top: 2rem;
     font-size: 0.8rem;
     height: 2rem;
     border-radius: 0.3rem;
     color: $BACKGROUND-COLOR-BASE;
+    padding: 1rem;
+    position: fixed;
+    bottom: 2rem;
+
+    -webkit-animation: fadein 0.7s, fadeout 0.2s 2.8s;
+    animation: fadein 0.7s, fadeout 0.2s 2.8s;
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;} 
+        to {bottom: 2rem; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 2rem; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 2rem; opacity: 1;} 
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 2rem; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
 }
 
 .error {
