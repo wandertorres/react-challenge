@@ -1,24 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
+import { MessageContext } from "../../context/MessageContext";
 import { Header } from "../_layout";
 import { Input, Button, SnackBar, Journal } from "../../components";
 
 export const JournalCreate = () => {
     const { userId } = useContext(UserContext);
+    const { messageError, setMessageSuccess, setMessageError } = useContext(MessageContext);
     const [title, setTitle] = useState<string>();
-    const [message, setMessage] = useState<string>();
     let history = useHistory();
 
     const handleJournalCreate = () => {
         title 
         ? axios
             .post('https://fuerza.test/journals/', { title, userId})
-            .then(() => history.push('/journal'))
-            .catch((error) => setMessage(error.response.data.data.message))
-        : setMessage("Title cannot be empty");
+            .then(() => {
+                history.push('/journal')
+                setMessageSuccess("Journal created successfully");
+            })
+            .catch((error) => setMessageError(error.response.data.data.message))
+        : setMessageError("Title cannot be empty");
     }
+
+    useEffect(() => {
+        setMessageError("");
+    }, [setMessageError]);
 
     return(
         <main>
@@ -38,7 +46,7 @@ export const JournalCreate = () => {
                         }} 
                         title="Save journal" />
                 </form>
-                { message &&  <SnackBar type="error" messsage={ message } /> }
+                { messageError &&  <SnackBar type="error" messsage={ messageError } /> }
             </section>
         </main>
     );

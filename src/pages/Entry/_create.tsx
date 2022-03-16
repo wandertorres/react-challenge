@@ -1,17 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../../context/UserContext';
 import { JournalContext } from '../../context/JournalContext';
+import { MessageContext } from "../../context/MessageContext";
 import { Header } from '../_layout';
 import { Input, Button, SnackBar } from '../../components';
 
 export const EntryCreate = () => {
     const { userId } = useContext(UserContext);
     const { journalName } = useContext(JournalContext);
+    const { messageError, setMessageSuccess, setMessageError } = useContext(MessageContext);
     const [title, setTitle] = useState<string>();
     const [content, setContent] = useState<string>();
-    const [message, setMessage] = useState<string>();
     let history = useHistory();
     let { id }: any = useParams();
 
@@ -22,10 +23,17 @@ export const EntryCreate = () => {
             content,
             userId,
         })
-        .then(() => history.push(`/journal/${ id }/posts`))
-        .catch((error) => setMessage(error.response.data.data.message))
-        : setMessage("Title and content are required");
+        .then(() => {
+            history.push(`/journal/${ id }/posts`)
+            setMessageSuccess("Note created successfully");
+        })
+        .catch((error) => setMessageError(error.response.data.data.message))
+        : setMessageError("Title and content are required");
     }
+
+    useEffect(() => {
+        setMessageError("");
+    }, [setMessageError]);
     
     return (
         <main>
@@ -50,7 +58,7 @@ export const EntryCreate = () => {
                         }}
                     />
                 </form>
-                { message && <SnackBar type="error" messsage={ message } /> }
+                { messageError && <SnackBar type="error" messsage={ messageError } /> }
             </section>
         </main>
     );

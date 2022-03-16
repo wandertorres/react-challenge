@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import { MessageContext } from "../../context/MessageContext";
 import { Header } from "../_layout";
 import { Input, Button, SnackBar } from "../../components";
-import { JournalContext } from "../../context/JournalContext";
 
 export const SignUp = () => {
-    const { setMessageSuccess } = useContext(JournalContext);
+    const { messageError, setMessageSuccess, setMessageError } = useContext(MessageContext);
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
     const [email, setEmail] = useState<string>();
-    const [messageError, setMessageError] = useState<string>();
     let history = useHistory();
 
     const handleSignUp = () => {
@@ -18,20 +17,16 @@ export const SignUp = () => {
             ? axios
                 .post('https://fuerza.test/auth/signup', {username, password, email})
                 .then(() => {
+                    history.push("/");
                     setMessageSuccess("User created successfully");
-                    history.push("/")
                 })
                 .catch(error => setMessageError(error.response.data.data.message))
             : setMessageError('Username and password are required');
     }
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setMessageError("");
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, [messageError]);
+        setMessageError("");
+    }, [setMessageError]);
     
     return(
         <main>
@@ -62,7 +57,7 @@ export const SignUp = () => {
                         }} 
                         title="Create account" />
                 </form>
-                { messageError &&  <SnackBar type="error" messsage={messageError} /> }
+                { messageError &&  <SnackBar type="error" messsage={ messageError } /> }
             </section>
         </main>
     );

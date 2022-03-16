@@ -2,12 +2,14 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { JournalContext } from "../../context/JournalContext";
+import { MessageContext } from "../../context/MessageContext";
 import { UserContext } from "../../context/UserContext";
 import { Header, EmptyList } from "../_layout";
-import { Journal } from "../../components";
+import { Journal, SnackBar } from "../../components";
 
 export const JournalRead = () => {
     const { journals, setJournals, setJournalName } = useContext(JournalContext);
+    const { messageSuccess, setMessageError } = useContext(MessageContext);
     const { userId } = useContext(UserContext);
 
     useEffect(() => {
@@ -15,6 +17,10 @@ export const JournalRead = () => {
           setJournals(response.data.journals);
         });
     }, [setJournals, userId]);
+
+    useEffect(() => {
+        setMessageError("");
+    }, [setMessageError]);
 
     return(
         <main>
@@ -32,6 +38,7 @@ export const JournalRead = () => {
                             </Link>
                         )) }
                     </div>
+                    { messageSuccess &&  <SnackBar type="success" messsage={ messageSuccess } /> }
                 </section>
             </> 
             : <>

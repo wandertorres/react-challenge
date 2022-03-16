@@ -2,16 +2,15 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import { UserContext } from "../../context/UserContext";
+import { MessageContext } from "../../context/MessageContext";
 import { Header } from "../_layout";
 import { Button, Input, SnackBar } from "../../components";
-import { JournalContext } from "../../context/JournalContext";
 
 export const SignIn = () => {
     const { setUserId, setIsLogged } = useContext(UserContext);
-    const { messageSuccess, setMessageSuccess } = useContext(JournalContext);
+    const { messageSuccess, messageError, setMessageError } = useContext(MessageContext);
     const [username, setUserName] = useState<string>();
     const [password, setPassword] = useState<string>();
-    const [messageError, setMessageError] = useState<string>("");
     let history = useHistory();
 
     const handleSignIn = () => {
@@ -25,13 +24,8 @@ export const SignIn = () => {
     }
     
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setMessageSuccess("");
-            setMessageError("");
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, [messageError, setMessageSuccess]);
+        setMessageError("");
+    }, [setMessageError]);
 
     return(
         <main>
