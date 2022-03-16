@@ -11,9 +11,6 @@ export const Entry = ({ ...props }: entryProps) => {
             <div className='entry__title'>
                 <h4>{ props.title }</h4>
             </div>
-            <div className="entry__content">
-                <h4>{ props.content }</h4>
-            </div>
         </div>
     );
 }

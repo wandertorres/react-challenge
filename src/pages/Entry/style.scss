@@ -1,3 +1,13 @@
+.entrieslist__container {
+    display: grid;
+    overflow: scroll;
+    align-content: baseline;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-height: 75vh;
+    height: 75vh;
+}
+
 .entries--create {
     &--entry {
         width: 48%;

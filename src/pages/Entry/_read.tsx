@@ -26,12 +26,10 @@ export const EntryReadAll = () => {
                         size='--small' 
                         nav={{title: journalName, to:"/journal"}}
                         button={{title:"+ Add note", to:`${ url }/create`}} />
-                    <div className="entrieslist__container flex flex--column">
-                        <div className="flex flex--row flex--justify--space-between flex--wrap">
-                            { entries.map((entry: any, i: number) => (
-                                <Entry key={ i } title={ entry.title } content={ entry.content } />
-                            )) }
-                        </div>
+                    <div className="entrieslist__container">
+                        { entries.map((entry: any, i: number) => (
+                            <Entry key={ i } title={ entry.title } content={ entry.content } />
+                        )) }
                     </div>
                 </section>
                 </> : <>
