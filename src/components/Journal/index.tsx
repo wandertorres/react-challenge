@@ -19,7 +19,9 @@ export const Journal = ({ ...props }: journalType) => {
         <div className={`journal journal${ model } flex flex--align--center`}>
             <div className={`journal-spine journal-spine${ model }`} />
             <div className="journal-cover flex flex--justify--center">
-                <h2 className={`journal-title${ model }`}>{ props.title }</h2>
+                <h2 className={`journal-title journal-title${ model }`}>
+                    { props.title }
+                </h2>
             </div>
         </div>
         </>

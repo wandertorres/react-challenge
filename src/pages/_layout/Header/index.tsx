@@ -19,7 +19,7 @@ type headerType = {
 export const Header = ({ ...props }: headerType) => {
 
     return(
-        <header className={`header${ props.size } flex flex--justify--space-between`}>
+        <header className={`header${ props.size } flex flex--justify--space-between flex--align--center`}>
             { props.nav
                 ? <>
                     <Link className="nav__title" to={ props.nav.to }>
