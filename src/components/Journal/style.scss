@@ -9,7 +9,7 @@
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.05));
 
     &-cover {
-        width: 80%;
+        width: 90%;
     }
 
     &-spine {
@@ -27,7 +27,7 @@
     &--par, &--impar {
         margin: 0;
         height: 25vh;
-        width: 100%;
+        width: 37vw;
     }
 
     &--par {
@@ -39,6 +39,7 @@
     }
 
     &-title {
+        text-align: center;
         max-height: 90%;
         font-family: 'Abhaya Libre', serif;
         line-height: 1.8rem;
